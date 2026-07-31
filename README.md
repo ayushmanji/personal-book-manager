@@ -7,7 +7,8 @@ A full-stack **Personal Book Manager** built with **Next.js (App Router)**, **Mo
 ---
 
 ## 🌐 Live Application Demo
-- **Live Deployed App**: [https://personal-book-manager-ayushmanji.vercel.app](https://personal-book-manager-ayushmanji.vercel.app)
+- **Live Deployed App**: [https://personal-book-manager-six.vercel.app](https://personal-book-manager-six.vercel.app)
+- **GitHub Repository**: [https://github.com/ayushmanji/personal-book-manager](https://github.com/ayushmanji/personal-book-manager)
 
 ---
 
