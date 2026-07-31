@@ -73,7 +73,9 @@ export default function BookModal({ isOpen, onClose, onSave, initialData = null 
             {initialData ? 'Edit Book Entry' : 'Add New Book'}
           </h2>
           <button
+            type="button"
             onClick={onClose}
+            aria-label="Close dialog"
             className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition-colors"
           >
             <X className="h-5 w-5" />
@@ -158,6 +160,7 @@ export default function BookModal({ isOpen, onClose, onSave, initialData = null 
                 <button
                   key={star}
                   type="button"
+                  aria-label={`Rate ${star} star${star > 1 ? 's' : ''}`}
                   onClick={() => setRating(rating === star ? 0 : star)}
                   className="p-1 hover:scale-110 transition-transform"
                 >

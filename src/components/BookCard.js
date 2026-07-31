@@ -63,14 +63,18 @@ export default function BookCard({ book, onEdit, onDelete, onStatusUpdate }) {
 
           <div className="flex items-center gap-1 opacity-80 group-hover:opacity-100 transition-opacity">
             <button
+              type="button"
               onClick={() => onEdit(book)}
+              aria-label={`Edit ${book.title}`}
               className="rounded-lg p-1.5 text-slate-400 hover:bg-slate-100 hover:text-slate-700 transition-colors"
               title="Edit Book"
             >
               <Edit3 className="h-4 w-4" />
             </button>
             <button
+              type="button"
               onClick={() => onDelete(book._id)}
+              aria-label={`Delete ${book.title}`}
               className="rounded-lg p-1.5 text-slate-400 hover:bg-rose-50 hover:text-rose-600 transition-colors"
               title="Delete Book"
             >

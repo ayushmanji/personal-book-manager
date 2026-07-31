@@ -28,9 +28,10 @@ export async function GET(request) {
     }
 
     if (search) {
+      const safeSearch = search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       filter.$or = [
-        { title: { $regex: search, $options: 'i' } },
-        { author: { $regex: search, $options: 'i' } },
+        { title: { $regex: safeSearch, $options: 'i' } },
+        { author: { $regex: safeSearch, $options: 'i' } },
       ];
     }
 

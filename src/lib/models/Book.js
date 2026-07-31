@@ -43,4 +43,8 @@ const BookSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// Compound indexes for query optimization
+BookSchema.index({ userId: 1, status: 1 });
+BookSchema.index({ userId: 1, updatedAt: -1 });
+
 export default mongoose.models.Book || mongoose.model('Book', BookSchema);

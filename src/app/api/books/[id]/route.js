@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import mongoose from 'mongoose';
 import dbConnect from '@/lib/db';
 import Book from '@/lib/models/Book';
 import { getAuthUser } from '@/lib/auth';
@@ -12,6 +13,10 @@ export async function GET(request, { params }) {
 
     await dbConnect();
     const { id } = params;
+
+    if (!id || !mongoose.Types.ObjectId.isValid(id)) {
+      return NextResponse.json({ error: 'Invalid book ID format' }, { status: 400 });
+    }
 
     const book = await Book.findOne({ _id: id, userId: authData.userId });
     if (!book) {
@@ -33,6 +38,10 @@ export async function PUT(request, { params }) {
 
     await dbConnect();
     const { id } = params;
+
+    if (!id || !mongoose.Types.ObjectId.isValid(id)) {
+      return NextResponse.json({ error: 'Invalid book ID format' }, { status: 400 });
+    }
     const body = await request.json();
 
     const book = await Book.findOne({ _id: id, userId: authData.userId });
@@ -85,6 +94,10 @@ export async function DELETE(request, { params }) {
 
     await dbConnect();
     const { id } = params;
+
+    if (!id || !mongoose.Types.ObjectId.isValid(id)) {
+      return NextResponse.json({ error: 'Invalid book ID format' }, { status: 400 });
+    }
 
     const deletedBook = await Book.findOneAndDelete({
       _id: id,
